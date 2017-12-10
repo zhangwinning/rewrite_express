@@ -8,17 +8,17 @@ date: 2017-12-09T12:21:55+08:00
 modify_date: 2017-12-09T12:22:55+08:00
 ---
 
-一直以为学好一个东西最好的方法，就是实现它，接下来就会一步步实现express。
+一直以为学好一个东西最好的方法，就是实现它，接下来我就会一步步实现express。
 
 <!--more-->
 
 ## 预备知识
 
-1、Object.assign\(target，....source\)
+1、Object.assign(target，....source)
 
-通过调用该函数可以copy所有可被枚举\(enumerable:true\)的自有属性\(不包括  \_\__proty_\_\_\)到目标对象中。
+通过调用该函数可以copy所有可被枚举(enumerable:true)的自有属性(不包括  __proto__)到目标对象中。
 
-2、 Function.apply\(obj，args\)
+2、 Function.apply(obj，args)
 
 obj：这个对象将代替Function类里this对象
 
@@ -54,7 +54,7 @@ app.listen(3000, function () {
 
 ### require('./express')
 
-当require\('./express'\)，实际上是require'./lib/express'，这是express的入口，查看express.js
+当require('./express')，实际上是require'./lib/express'，这是express的入口，查看express.js
 
 ```
 exports = module.exports = createApplication;
@@ -88,7 +88,7 @@ function createApplication() {
 
 所以require('./express')得到的是`createApplication`函数。
 
-### express\(\)
+### express()
 
 而 let app = express()就是得到app对象，这个对象中也包含application的属性（listen）。
 

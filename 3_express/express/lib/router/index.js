@@ -16,8 +16,6 @@ function proto() {
 /**
  * Create a new Route for the given path
  * Each route contains a separate middleware stack and verb handles
- *
- *
  * @param path
  * @returns {Route}
  */
