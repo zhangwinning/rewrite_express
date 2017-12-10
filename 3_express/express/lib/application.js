@@ -21,6 +21,14 @@ app.handle = function handle(req, res, callback) {
     router.handle(req, res, {});
 }
 
+app.use = function use(fn) {
+    // let path = '/';
+    // var fn = Array.prototype.slice(arguments, 1);
+    this.lazyrouter();
+    let router = this._router;
+    return router.use(fn);    //proxy router
+}
+
 // 以下代码会在其他模块require时执行，在app中添加方法，app[method]会在调用路由中间件时执行
 methods.forEach(function (method) {
     app[method] = function (path) {

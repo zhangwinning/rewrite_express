@@ -10,6 +10,7 @@ function proto() {
     router.stack = [];	//这里是router.stack, 而不是this.stack
     router['route'] = proto['route'];
     router['handle'] = proto['handle'];
+    router['use'] = proto['use'];
     return router;
 }
 
@@ -45,6 +46,10 @@ proto.handle = function handle(req, res, out) {
         var match;
         var route;
 
+        if (idx >= stack.length) {
+            return;
+        }
+
         while (match !== true && idx < stack.length) {
             layer = stack[idx++];
             match = matchLayer(layer, path);
@@ -57,6 +62,36 @@ proto.handle = function handle(req, res, out) {
         }
     }
 }
+
+proto.use = function use(callback) {
+    // var offset = 0;
+    var path = '/';
+
+    // default path to '/'
+    // disambiguate router.use([fn])
+    // if (typeof fn !== 'function') {
+    //     var arg = fn;
+    //
+    //     while (Array.isArray(arg) && arg.length !== 0) {
+    //         arg = arg[0];
+    //     }
+    //
+    //     // first arg is the path
+    //     if (typeof arg !== 'function') {
+    //         offset = 1;
+    //         path = fn;
+    //     }
+    // }
+    // let callback = Array.prototype.slice(arguments, offset);
+
+    var layer = new Layer(path, {}, callback);
+
+    layer.route = undefined;
+
+    this.stack.push(layer);
+    return this;
+}
+
 var parseUrl = require('parseurl');
 
 function getPathname(req) {
