@@ -1,12 +1,3 @@
----
-layout: post
-title: 重写express(一)
-key: 10002
-tags: express
-category: blog
-date: 2017-12-09T12:21:55+08:00
-modify_date: 2017-12-09T12:22:55+08:00
----
 
 一直以为学好一个东西最好的方法，就是实现它，接下来我就会一步步实现express。
 
@@ -54,22 +45,7 @@ app.listen(3000, function () {
 
 ### require('./express')
 
-当require('./express')，实际上是require'./lib/express'，这是express的入口，查看express.js
-
-```
-exports = module.exports = createApplication;
-
-let application = require('./application');
-
-function createApplication() {
-    let app = function (req, res, next) {
-        res.writeHead('200', {'Content-Type': 'text-plain'});
-        res.end('hello world\n');
-    }
-    Object.assign(app, application);
-    return app;
-}
-```
+当require('./express')，实际上是require('./lib/express');，这是express的入口，查看express.js
 
 ```
 exports = module.exports = createApplication;
