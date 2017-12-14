@@ -40,7 +40,7 @@ proto.handle = function handle(req, res, out) {
     var path = getPathname(req);    //获取请求路径
     var idx = 0;
     next();
-
+    console.log('########', stack);
     function next(err) {
         var layer;
         var match;
@@ -55,6 +55,7 @@ proto.handle = function handle(req, res, out) {
             match = matchLayer(layer, path);
             route = layer.route;
         }
+
         if (match) {
             layer.handle_request(req, res, next);
         } else {
