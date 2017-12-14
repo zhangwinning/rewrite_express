@@ -7,7 +7,7 @@
 
 1、Object.assign(target，....source)
 
-通过调用该函数可以copy所有可被枚举(enumerable:true)的自有属性(不包括  __proto__)到目标对象中。
+通过调用该函数可以copy所有可被枚举(enumerable:true)的自有属性(不包括 __proto__)到目标对象中。
 
 2、 Function.apply(obj，args)
 
