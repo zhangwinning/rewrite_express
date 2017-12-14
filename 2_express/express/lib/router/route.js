@@ -42,7 +42,6 @@ methods.forEach(function (method) {
         let handlers = slice.call(arguments);
         let handler = handlers[0];
         let layer = Layer('/', {}, handler);
-        console.log('######', layer);
         layer.method = method;
 
         this.methods[method] = true;

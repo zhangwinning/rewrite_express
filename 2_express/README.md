@@ -1,8 +1,6 @@
 ## 重写express(二)
 
-继续实现express。
-
-### 目标：实现路由中间件
+### 目标：实现路由中间件(以get方法为例)
 
 app.get('/test', (req, res) => res.send('Hello World!') );
 
@@ -48,16 +46,18 @@ app.listen(3001, function () {
 路由get的添加分为三板斧
 
 ```
-1、express()   //为应用添加各种请求方法
-2、app.get('/test', (req, res) => {})  // 构建前端请求和后端处理程序的关联
+1、express()   //会在app对象中添加应用处理方法
+2、app.get('/test', (req, res) => {})  // 执行构建前端请求和后端处理程序的关联
 3、createServer(app)  // 请求方法的执行，请求到来后，调用函数app()
 ```
 
 具体实现
 
-1、执行express后，会在app对象中添加各种请求方法。
+1、express()
 
-2、构建关联
+实例化一个app对象，并且把`application.js`中原型对象合并到app对象上。
+
+2、app.get('/test', (req, res) => {})
 
 app[method] 函数会在调用路由中间件（例如 app.get(/test)）时执行。
 
@@ -93,5 +93,3 @@ route[method].apply(route, handle);
 ----> 调用router.handle() ---->
 根据请求的url和第二步中注册的路由路径判断是否是满足，
 满足的话，调用相应layer对象中的handle对象进行调用
-
-[项目地址](https://github.com/WenNingZhang/rewrite_express.git)
