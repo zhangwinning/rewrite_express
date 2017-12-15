@@ -59,7 +59,7 @@ app.listen(3001, function () {
 
 2、app.get('/test', (req, res) => {})
 
-app[method] 函数会在调用路由中间件（例如 app.get(/test)）时执行。
+app.get()会调用`application.js`中构建的请求方法`get`,具体代码如下。
 
 ```
 methods.forEach(function (method) {
@@ -71,13 +71,15 @@ methods.forEach(function (method) {
         return this;
     }
 });
+
 ```
 this.lazyrouter();
-这个方法会创建router对象，而这个对象会一直绑定到应用的_router属性上，创建的router对象在每个应用中只有一个。
-`express.js`中的app对象和这里创建的router对象是结构极为的(router对象本身是个函数，并且添加一些属性)。
+这个方法会创建router对象，而这个对象会一直绑定到应用的_router属性上，创建的router对象在每个应用中只有一个,作用是处理每一个路由请求。
+注: `express.js`中的app对象和这里创建的router对象是结构极为的(router对象本身是个函数，并且添加了一些属性)。
 
 let route = this._router.route(path);
-先创建一个Route对象，创建layer对象，把layer对象的route属性指向Route对象，把新创建的layer对象放到router的stack中，返回route对象
+先创建一个Route对象，创建layer对象，把layer对象的route属性指向Route对象，把新创建的layer对象放到router的stack中，返回route对象，这里的layer中handle属性是route.dispatch函数，这个函数的作用是
+
 
 let handle = slice.call(arguments, 1);
 获取处理函数(数组的形式)

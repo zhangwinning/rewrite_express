@@ -14,27 +14,15 @@ function proto() {
 }
 
 /**
- * Create a new Route for the given path
- * Each route contains a separate middleware stack and verb handles
- *
- *
- * @param path
- * @returns {Route}
  */
 proto.route = function route(path) {
     var route = new Route();
-
     var layer = new Layer(path, {}, route.dispatch.bind(route));
-
     layer.route = route;
     this.stack.push(layer);
     return route;
 }
 
-//这里为什么会写的怎么乱，肯定是有原因的
-//这里的调用流程是:
-// createApplication-->application.handle-->router.handle
-// 这里调用这个函数时，proto是上下文
 proto.handle = function handle(req, res, out) {
     var self = this;
     var stack = self.stack;
