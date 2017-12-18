@@ -37,11 +37,10 @@ app.listen(3002, function () {
 
 router.use方法中
 
-1、实例化一个layer对象，
+1、实例化一个layer对象
 
 2、把layer对象的route属性判定为undefined
 
 3、把layer对象放入栈中
 
-最后请求
-请求到来后，直接调用router中的handle函数，遍历router中的stack数组，找到匹配的后进行处理，
+最后请求到来后，直接调用router中的handle函数，遍历router中的stack数组，找到匹配的后进行处理。
