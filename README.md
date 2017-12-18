@@ -1,5 +1,3 @@
-**渐进式Express源码学习| 小白也能懂源码**
-
 **文章目录**
 
 1. [1_express](https://github.com/WenNingZhang/rewrite_express/tree/master/1_express)
