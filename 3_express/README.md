@@ -31,12 +31,18 @@ app.listen(3002, function () {
 `app.use()`实际调用application.js中的app.use方法，看一下app.use是做了什么事？
 
 1、先通过懒加载实例化一个router对象
+
 2、获取router对象
+
 3、调用router对象的use方法(用app.use代理router.use)
 
+
 router.use方法中
+
 1、实例化一个layer对象，
+
 2、把layer对象的route属性判定为undefined
+
 3、把layer对象放入栈中
 
 最后请求
