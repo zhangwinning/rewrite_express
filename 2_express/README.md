@@ -93,7 +93,7 @@ route[method].apply(route, handle);
 
 router中的stack数组是有layer组成的，而route中的stack也是由layer组成的，区别是前者layer的fn是dispatch函数，用于遍历程序中的整个路由中间件，后者fn是真正的处理函数。
 
-[总结!](http://wx2.sinaimg.cn/large/e8616f3dgy1fmkrlwfyxoj20kx0b6dga.jpg)
+![总结](http://wx2.sinaimg.cn/large/e8616f3dgy1fmkrlwfyxoj20kx0b6dga.jpg)
 
 3、根据请求路由调用具体处理函数
 
