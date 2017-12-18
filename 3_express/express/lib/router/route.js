@@ -11,12 +11,6 @@ function Route(path) {
     this.methods = {};
 }
 
-/**
- * dispatch req, res into this route
- * @param req
- * @param res
- * @param done
- */
 Route.prototype.dispatch = function dispatch(req, res, done) {
     var idx = 0;
     var stack = this.stack;
@@ -42,11 +36,8 @@ methods.forEach(function (method) {
         let handlers = slice.call(arguments);
         let handler = handlers[0];
         let layer = Layer('/', {}, handler);
-
         layer.method = method;
-
         this.methods[method] = true;
-
         this.stack.push(layer);
     }
     return this;

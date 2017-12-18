@@ -8,17 +8,10 @@ function Layer(path, options, fn) {
     if (!(this instanceof Layer)) {
         return new Layer(path, options, fn);
     }
-
     this.path = path;   //把每个路由对象中路径保存下来
     this.handle = fn;
 }
 
-/**
- * Handle the request for the Layer
- * @param req
- * @param res
- * @param next
- */
 Layer.prototype.handle_request = function handle_request(req, res, next) {
     var fn = this.handle;
     try {
@@ -34,11 +27,6 @@ Layer.prototype.handle_error_route = function (req, res, next) {
     res.send("route error");
 }
 
-
-/**
- * check if this route match `path`, if so
- * populate `.params`
- */
 Layer.prototype.match = function match(path) {
     //判断每个Layer中的path和真实请求路径是否相等
     if (this.path === path) {

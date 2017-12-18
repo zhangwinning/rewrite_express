@@ -14,12 +14,6 @@ function proto() {
     return router;
 }
 
-/**
- * Create a new Route for the given path
- * Each route contains a separate middleware stack and verb handles
- * @param path
- * @returns {Route}
- */
 proto.route = function route(path) {
     var route = new Route();
 
@@ -30,17 +24,13 @@ proto.route = function route(path) {
     return route;
 }
 
-//这里为什么会写的怎么乱，肯定是有原因的
-//这里的调用流程是:
-// createApplication-->application.handle-->router.handle
-// 这里调用这个函数时，proto是上下文
+
 proto.handle = function handle(req, res, out) {
     var self = this;
     var stack = self.stack;
     var path = getPathname(req);    //获取请求路径
     var idx = 0;
     next();
-    console.log('########', stack);
     function next(err) {
         var layer;
         var match;
@@ -65,25 +55,7 @@ proto.handle = function handle(req, res, out) {
 }
 
 proto.use = function use(callback) {
-    // var offset = 0;
     var path = '/';
-
-    // default path to '/'
-    // disambiguate router.use([fn])
-    // if (typeof fn !== 'function') {
-    //     var arg = fn;
-    //
-    //     while (Array.isArray(arg) && arg.length !== 0) {
-    //         arg = arg[0];
-    //     }
-    //
-    //     // first arg is the path
-    //     if (typeof arg !== 'function') {
-    //         offset = 1;
-    //         path = fn;
-    //     }
-    // }
-    // let callback = Array.prototype.slice(arguments, offset);
 
     var layer = new Layer(path, {}, callback);
 

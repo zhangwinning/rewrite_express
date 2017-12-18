@@ -22,8 +22,6 @@ app.handle = function handle(req, res, callback) {
 }
 
 app.use = function use(fn) {
-    // let path = '/';
-    // var fn = Array.prototype.slice(arguments, 1);
     this.lazyrouter();
     let router = this._router;
     return router.use(fn);    //proxy router
