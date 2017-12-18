@@ -53,11 +53,11 @@ app.listen(3001, function () {
 
 具体实现
 
-1、express()
+### express()
 
 当`require('./express')`时，返回一个`createApplication`函数，再执行express()，实例化一个app对象，并且把`application.js`中的原型对象合并到app对象上。这里当执行`require('./application')`时，node已经对模块进行缓存，`express()`时，直接从缓存中拿。对应预备知识2
 
-2、app.get('/test', (req, res) => {})
+### app.get('/test', (req, res) => {})
 
 app.get()会调用`application.js`中构建的请求方法`get`,具体代码如下。
 
@@ -95,7 +95,7 @@ router中的stack数组是有layer组成的，而route中的stack也是由layer�
 
 ![总结](http://wx2.sinaimg.cn/large/e8616f3dgy1fmkrlwfyxoj20kx0b6dga.jpg)
 
-3、根据请求路由调用具体处理函数
+### createServer(app)
 
 请求来到后，实际上调用的是`application.js`中的handle函数(获取应用的_router属性，实际上是router对象)
 ----> 调用router.handle() ---->
