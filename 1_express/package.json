@@ -1,0 +1,12 @@
+{
+  "name": "1_express",
+  "version": "1.0.0",
+  "description": "### 目标：实现一个基本服务器，当有请求时，打印`hello world`",
+  "main": "test.js",
+  "scripts": {
+    "test": "",
+    "start": "node test.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

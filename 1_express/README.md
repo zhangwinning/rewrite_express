@@ -89,3 +89,9 @@ app.listen = function listen() {
 ```
 以server 作为上下文，调用listen方法启动服务器。
 
+运行`npm start`，结果如图:
+
+![图中的](../pictures/1_express01.png)
+
+
+
