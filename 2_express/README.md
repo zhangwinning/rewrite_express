@@ -27,7 +27,7 @@ foo ('hello', 'world')
 
 2、require模块时，Node对模块进行缓存，第二次require时，是不会重复开销的。
 
-3、router、route、layer 区别
+3、router、route、layer 区别：<br>
   1、router 相当于一个中间件容器，每个应用只会创建一个router。<br>
   2、每个路由中间件会对应一个layer对象，而判断路由中间件和普通中间件的区别是判断layer.route是否为空。
 
@@ -75,11 +75,22 @@ methods.forEach(function (method) {
 ```
 this.lazyrouter();
 这个方法会创建router对象，而这个对象会一直绑定到应用的_router属性上，创建的router对象在每个应用中只有一个,作用是处理每一个路由请求。
+
 注: `express.js`中的app对象和这里创建的router对象是结构极为类似(router对象本身是个函数，并且添加了一些属性)。
 
 let route = this._router.route(path);
-先创建一个Route对象，创建layer对象，把layer对象的route属性指向Route对象，把新创建的layer对象放到router的stack中，返回route对象，这里的layer中handle属性是route.dispatch函数，这个函数的作用是
-通过next()获取stack中的每一个layer来执行对应的中间件，这样可以保证定义在路由上的中间件可以按照顺序依次执行。
+
+
+```
+proto.route = function route(path) {
+    var route = new Route();
+    var layer = new Layer(path, {}, route.dispatch.bind(route));
+    layer.route = route;
+    this.stack.push(layer);
+    return route;
+}
+```
+先创建一个Route对象，创建layer对象，把layer对象的route属性指向Route对象，把新创建的layer对象放到router的stack中，返回route对象，这里的layer中handle属性是route.dispatch函数，这个函数的作用是通过next()获取stack中的每一个layer来执行对应的中间件，这样可以保证定义在路由上的中间件可以按照顺序依次执行。
 
 let handle = slice.call(arguments, 1);
 获取处理函数(数组的形式)
