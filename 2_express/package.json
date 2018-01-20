@@ -1,0 +1,12 @@
+{
+  "name": "2_express",
+  "version": "1.0.0",
+  "description": "### 目标：实现路由中间件(以get方法为例)",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":  "node test.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
