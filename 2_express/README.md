@@ -28,8 +28,8 @@ foo ('hello', 'world')
 2、require模块时，Node对模块进行缓存，第二次require时，是不会重复开销的。
 
 3、router、route、layer 区别：<br>
-  1、router 相当于一个中间件容器，每个应用只会创建一个router。<br>
-  2、每个路由中间件会对应一个layer对象，而判断路由中间件和普通中间件的区别是判断layer.route是否为空。
+    1、router 相当于一个中间件容器，每个应用只会创建一个router。<br>
+    2、每个路由中间件会对应一个layer对象，而判断路由中间件和普通中间件的区别是判断layer.route是否为空。
 
 ### 流程
 
@@ -74,8 +74,7 @@ methods.forEach(function (method) {
 
 ```
 this.lazyrouter();
-这个方法会创建router对象，而这个对象会一直绑定到应用的_router属性上，创建的router对象在每个应用中只有一个,作用是处理每一个路由请求。
-
+这个方法会创建router对象，而这个对象会一直绑定到应用的_router属性上，创建的router对象在每个应用中只有一个,作用是处理每一个路由请求。<br>
 注: `express.js`中的app对象和这里创建的router对象是结构极为类似(router对象本身是个函数，并且添加了一些属性)。
 
 let route = this._router.route(path);
