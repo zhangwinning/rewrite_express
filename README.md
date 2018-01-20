@@ -1,6 +1,8 @@
 
 **用最少的代码实现express**
 
+一直以为学好一个东西最好的方法，就是实现它，接下来我就会一步步实现express框架
+
 **文章目录**
 
    [1_express](https://github.com/WenNingZhang/rewrite_express/tree/master/1_express)
