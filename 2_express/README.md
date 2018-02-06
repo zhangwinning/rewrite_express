@@ -108,7 +108,7 @@ router中的stack数组是有layer组成的，而route中的stack也是由layer�
 
 ![总结](http://wx2.sinaimg.cn/large/e8616f3dgy1fmkrlwfyxoj20kx0b6dga.jpg)
 
-#### createServer(app)
+#### 3. createServer(app)
 
 请求来到后，实际上调用的是`application.js`中的handle函数(获取应用的_router属性，实际上是router对象)
 ----> 调用router.handle() ---->
