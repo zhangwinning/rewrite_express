@@ -94,4 +94,4 @@ return server.listen.apply(server, arguments);
 ![图中的](../pictures/1_express01.png)
 
 
-
+[见下篇](https://github.com/WenNingZhang/rewrite_express/tree/master/2_express)
