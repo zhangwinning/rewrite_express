@@ -17,10 +17,11 @@ function foo () {
       console.log(Array.prototype.slice.call(arguments, 1))
       console.log(arguments);
 }
-foo ('hello', 'world')
+
 
 The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.
 
+foo ('hello', 'world')
 { '0': 'hello', '1': 'world' }
 [ 'hello', 'world' ]
 [ 'world' ]
@@ -55,11 +56,11 @@ app.listen(3001, function () {
 
 ### 具体实现
 
-#### express()
+#### 1. express()
 
 当`require('./express')`时，返回一个`createApplication`函数，再执行express()，实例化一个app对象，并且把`application.js`中的原型对象合并到app对象上。这里当执行`require('./application')`时，node已经对模块进行缓存，`express()`时，直接从缓存中拿。对应预备知识2
 
-#### app.get('/test', (req, res) => {})
+#### 2. app.get('/test', (req, res) => {})
 
 app.get()会调用`application.js`中构建的请求方法`get`,具体代码如下。
 
