@@ -28,8 +28,8 @@ foo ('hello', 'world')
 2、require模块时，Node对模块进行缓存，第二次require时，是不会重复开销的。
 
 3、router、route、layer 区别：<br>
-    * router 相当于一个中间件容器，每个应用只会创建一个router。<br>
-    * 每个路由中间件会对应一个layer对象，而判断路由中间件和普通中间件的区别是判断layer.route是否为空。
+    + router 相当于一个中间件容器，每个应用只会创建一个router。<br>
+    + 每个路由中间件会对应一个layer对象，而判断路由中间件和普通中间件的区别是判断layer.route是否为空。
 
 ### 流程
 
