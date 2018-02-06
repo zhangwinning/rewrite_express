@@ -6,7 +6,7 @@ app.get('/test', (req, res) => res.send('Hello World!'));
 
 ### 预备知识
 
-1、Array.prototype.slice.call(arguments);
+#### 1. Array.prototype.slice.call(arguments);
 
 把类数组对象转化为数组，并且返回转化后的数组。
 
@@ -25,11 +25,11 @@ foo ('hello', 'world')
 { '0': 'hello', '1': 'world' }
 ```
 
-2、require模块时，Node对模块进行缓存，第二次require时，是不会重复开销的。
+#### 2. require模块时，Node对模块进行缓存，第二次require时，是不会重复开销的。
 
-3、router、route、layer 区别：
-    + router 相当于一个中间件容器，每个应用只会创建一个router。
-    + 每个路由中间件会对应一个layer对象，而判断路由中间件和普通中间件的区别是判断layer.route是否为空。
+#### 3. router、route、layer 区别：
++ router 相当于一个中间件容器，每个应用只会创建一个router。
++ 每个路由中间件会对应一个layer对象，而判断路由中间件和普通中间件的区别是判断layer.route是否为空。
 #### 6. 尝试一下
 + **Chrome**下的插件诸如`stackedit`与`markdown-here`等非常方便，也不用担心平台受限。
 + **在线**的dillinger.io评价也不错   
